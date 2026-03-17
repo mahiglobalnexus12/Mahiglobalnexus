@@ -27,7 +27,7 @@ h2{text-align:center;margin-bottom:25px}
 .card{background:#1e293b;border-radius:10px;padding:15px;cursor:pointer;transition:transform .2s}
 .card:hover{transform:scale(1.05)}
 .card img{width:100%;border-radius:8px}
-.price{color:#eab308;font-weight:bold}
+{color:#eab308;font-weight:bold}
 
 .details{display:none;padding:25px;background:#020617;border-radius:10px;margin-top:30px}
 
@@ -124,14 +124,14 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:40px;color:#
 
 <h3>Add Product</h3>
 <input id="pname" placeholder="Product Name">
-<input id="pprice" placeholder="Price">
+<input id="" placeholder=">
 <input id="pimage" placeholder="Image file name">
 <textarea id="pdesc" placeholder="Description"></textarea>
 <button onclick="addProduct()">Add Product</button>
 
 <h3>Products List</h3>
 <table class="table">
-<thead><tr><th>Name</th><th>Price</th><th>Delete</th></tr></thead>
+<thead><tr><th>Name</th><th></th><th>Delete</th></tr></thead>
 <tbody id="productTable"></tbody>
 </table>
 
@@ -155,8 +155,8 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:40px;color:#
 <script>
 
 let products = JSON.parse(localStorage.getItem("products") || `[
-{"name":"Fresh Onion","price":"₹20/kg","image":"Fresh Onion photo.jpeg","desc":"Farm fresh onion"},
-{"name":"Tomato","price":"₹25/kg","image":"Tamato photo.jpeg","desc":"Fresh tomato"}
+{"name":"Fresh Onion",":","image":"Fresh Onion photo.jpeg","desc":"Farm fresh onion"},
+{"name":"Tomato","image":"Tamato photo.jpeg","desc":"Fresh tomato"}
 ]`);
 
 let leads = JSON.parse(localStorage.getItem("leads") || "[]");
@@ -167,7 +167,6 @@ list.forEach((p,i)=>{
 html+=`<div class="card" onclick="show(${i})">
 <img src="${p.image}">
 <h3>${p.name}</h3>
-<div class="price">${p.price}</div>
 <p>${p.desc}</p>
 </div>`;
 });
@@ -183,7 +182,7 @@ let wa=`https://wa.me/918830577532?text=${encodeURIComponent('Hello I want '+p.n
 let html=`<h2>${p.name}</h2>
 <img src="${p.image}" style="width:320px">
 <p>${p.desc}</p>
-<div class="price">${p.price}</div>
+
 <button class="contact-btn whatsapp" onclick="window.open('${wa}')">WhatsApp</button>
 <button class="contact-btn call" onclick="window.location='tel:+918830577532'">Call</button>`;
 
@@ -193,11 +192,11 @@ document.getElementById("details").innerHTML=html;
 
 function addProduct(){
 let name=pname.value;
-let price=pprice.value;
+
 let image=pimage.value;
 let desc=pdesc.value;
 
-products.push({name,price,image,desc});
+
 localStorage.setItem("products",JSON.stringify(products));
 render();
 }
@@ -229,7 +228,7 @@ updateTables();
 function updateTables(){
 let pt="";
 products.forEach((p,i)=>{
-pt+=`<tr><td>${p.name}</td><td>${p.price}</td><td><button onclick="delProduct(${i})">Delete</button></td></tr>`;
+pt+=`<tr><td>${p.name}</td><td>$</td><td><button onclick="delProduct(${i})">Delete</button></td></tr>`;
 });
 productTable.innerHTML=pt;
 
