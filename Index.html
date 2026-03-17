@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mahi Global Nexus | Export Company</title>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#0f172a;color:white}
+header{background:#020617;padding:25px;text-align:center;border-bottom:2px solid #1e293b}
+.logo{width:150px;margin:auto;display:block;margin-bottom:10px}
+h1{margin:5px}
+.address{font-size:14px;color:#cbd5f5}
+.map-btn{margin-top:10px;padding:10px 16px;background:#eab308;border:none;border-radius:6px;font-weight:bold;cursor:pointer}
+
+.container{padding:40px 20px;max-width:1200px;margin:auto}
+
+h2{text-align:center;margin-bottom:25px}
+
+.search{display:block;margin:auto;margin-bottom:30px;padding:12px;width:320px;border-radius:6px;border:none}
+
+.categories{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px}
+.category{background:#1e293b;padding:8px 14px;border-radius:20px;font-size:14px}
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+
+.card{background:#1e293b;border-radius:10px;padding:15px;cursor:pointer;transition:transform .2s}
+.card:hover{transform:scale(1.05)}
+.card img{width:100%;border-radius:8px}
+.price{color:#eab308;font-weight:bold}
+
+.details{display:none;padding:25px;background:#020617;border-radius:10px;margin-top:30px}
+
+.contact-btn{padding:10px 14px;margin:6px;border:none;border-radius:6px;font-weight:bold;cursor:pointer}
+.whatsapp{background:#25D366;color:white}
+.call{background:#eab308}
+
+.gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.gallery img{width:200px;border-radius:8px}
+
+.admin{margin-top:60px;background:#020617;padding:25px;border-radius:10px}
+.admin input,.admin textarea{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none}
+.admin button{padding:12px 18px;background:#eab308;border:none;border-radius:6px;font-weight:bold;cursor:pointer}
+
+.buyer{max-width:600px;margin:auto;background:#020617;padding:20px;border-radius:10px;margin-top:40px}
+.buyer input,.buyer textarea{width:100%;padding:10px;margin:8px 0;border:none;border-radius:6px}
+.buyer button{padding:12px 16px;background:#eab308;border:none;border-radius:6px;font-weight:bold;cursor:pointer}
+
+footer{text-align:center;padding:20px;background:#020617;margin-top:40px;color:#94a3b8}
+
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:bold}
+
+.badges{display:flex;gap:10px;justify-content:center;margin-top:10px;color:#9ca3af;font-size:13px}
+
+.table{width:100%;border-collapse:collapse;margin-top:20px}
+.table th,.table td{border:1px solid #334155;padding:8px;text-align:left}
+
+</style>
+</head>
+<body>
+
+<header>
+<img class="logo" src="Mahi EXIM Logo.png" alt="Mahi Global Nexus Logo" />
+<h1>Mahi Global Nexus</h1>
+<div class="address">Kannad, Dist. Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India</div>
+<button class="map-btn" onclick="window.open('https://maps.google.com?q=Chhatrapati%20Sambhajinagar%20Aurangabad')">View on Google Maps</button>
+
+<div class="badges">
+<span>🌍 Export Ready</span>
+<span>🌾 Farm Direct Supply</span>
+<span>📦 Bulk Orders Accepted</span>
+</div>
+</header>
+
+<div class="container">
+
+<h2>Product Categories</h2>
+<div class="categories">
+<div class="category">Fresh Vegetables</div>
+<div class="category">Onion</div>
+<div class="category">Tomato</div>
+<div class="category">Potato</div>
+<div class="category">Coriander</div>
+<div class="category">Agricultural Products</div>
+</div>
+
+<input id="search" class="search" placeholder="Search products" onkeyup="searchProduct()">
+
+<h2>Export Products</h2>
+<div id="products" class="products"></div>
+
+<div id="details" class="details"></div>
+
+<h2>Farm Gallery</h2>
+<div class="gallery">
+<img src="potato photo 1.jpeg">
+<img src="Potato photo.jpeg">
+<img src="Kothambir photo.jpeg">
+<img src="Fresh Onion photo.jpeg">
+<img src="tomato photo1.jpeg">
+<img src="Tamato photo.jpeg">
+</div>
+
+<h2>Export Markets</h2>
+<p style="text-align:center">UAE • Saudi Arabia • Qatar • Oman • Kuwait • Singapore • Malaysia • UK • Canada • Australia</p>
+
+<div class="buyer">
+<h2>Buyer Inquiry</h2>
+<input id="bname" placeholder="Buyer Name">
+<input id="bcountry" placeholder="Country">
+<input id="bproduct" placeholder="Product Required">
+<textarea id="bmessage" placeholder="Message"></textarea>
+<button onclick="sendBuyerInquiry()">Send Inquiry on WhatsApp</button>
+</div>
+
+<div id="adminLogin" class="admin">
+<h2>Admin Login</h2>
+<input id="adminPass" type="password" placeholder="Enter Admin Password">
+<button onclick="unlockAdmin()">Login</button>
+</div>
+
+<div id="adminPanel" class="admin" style="display:none">
+<h2>Admin Dashboard</h2>
+
+<h3>Add Product</h3>
+<input id="pname" placeholder="Product Name">
+<input id="pprice" placeholder="Price">
+<input id="pimage" placeholder="Image file name">
+<textarea id="pdesc" placeholder="Description"></textarea>
+<button onclick="addProduct()">Add Product</button>
+
+<h3>Products List</h3>
+<table class="table">
+<thead><tr><th>Name</th><th>Price</th><th>Delete</th></tr></thead>
+<tbody id="productTable"></tbody>
+</table>
+
+<h3>Buyer Leads</h3>
+<table class="table">
+<thead><tr><th>Name</th><th>Country</th><th>Product</th></tr></thead>
+<tbody id="leadTable"></tbody>
+</table>
+</div>
+
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/918830577532" target="_blank">WhatsApp</a>
+
+<footer>
+<p>Email: mahiglobalnexus12@gmail.com | Mobile: +91 8830 577 532 | Landline: 02435-357166</p>
+<p>Location: Kannad, Dist. Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, India</p>
+<p>Mahi Global Nexus – Export & Import of Fresh Vegetables</p>
+</footer>
+
+<script>
+
+let products = JSON.parse(localStorage.getItem("products") || `[
+{"name":"Fresh Onion","price":"₹20/kg","image":"Fresh Onion photo.jpeg","desc":"Farm fresh onion"},
+{"name":"Tomato","price":"₹25/kg","image":"Tamato photo.jpeg","desc":"Fresh tomato"}
+]`);
+
+let leads = JSON.parse(localStorage.getItem("leads") || "[]");
+
+function render(list = products){
+let html="";
+list.forEach((p,i)=>{
+html+=`<div class="card" onclick="show(${i})">
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<div class="price">${p.price}</div>
+<p>${p.desc}</p>
+</div>`;
+});
+
+document.getElementById("products").innerHTML=html;
+updateTables();
+}
+
+function show(i){
+let p=products[i];
+let wa=`https://wa.me/918830577532?text=${encodeURIComponent('Hello I want '+p.name)}`;
+
+let html=`<h2>${p.name}</h2>
+<img src="${p.image}" style="width:320px">
+<p>${p.desc}</p>
+<div class="price">${p.price}</div>
+<button class="contact-btn whatsapp" onclick="window.open('${wa}')">WhatsApp</button>
+<button class="contact-btn call" onclick="window.location='tel:+918830577532'">Call</button>`;
+
+document.getElementById("details").style.display="block";
+document.getElementById("details").innerHTML=html;
+}
+
+function addProduct(){
+let name=pname.value;
+let price=pprice.value;
+let image=pimage.value;
+let desc=pdesc.value;
+
+products.push({name,price,image,desc});
+localStorage.setItem("products",JSON.stringify(products));
+render();
+}
+
+function searchProduct(){
+let q=search.value.toLowerCase();
+render(products.filter(p=>p.name.toLowerCase().includes(q)));
+}
+
+function sendBuyerInquiry(){
+let lead={name:bname.value,country:bcountry.value,product:bproduct.value};
+leads.push(lead);
+localStorage.setItem("leads",JSON.stringify(leads));
+
+let text=`Buyer:${lead.name} Country:${lead.country} Product:${lead.product}`;
+window.open(`https://wa.me/918830577532?text=${encodeURIComponent(text)}`);
+
+render();
+}
+
+function unlockAdmin(){
+if(adminPass.value==='mahiglobal123'){
+adminLogin.style.display='none';
+adminPanel.style.display='block';
+updateTables();
+}
+}
+
+function updateTables(){
+let pt="";
+products.forEach((p,i)=>{
+pt+=`<tr><td>${p.name}</td><td>${p.price}</td><td><button onclick="delProduct(${i})">Delete</button></td></tr>`;
+});
+productTable.innerHTML=pt;
+
+let lt="";
+leads.forEach(l=>{
+lt+=`<tr><td>${l.name}</td><td>${l.country}</td><td>${l.product}</td></tr>`;
+});
+leadTable.innerHTML=lt;
+}
+
+function delProduct(i){
+products.splice(i,1);
+localStorage.setItem("products",JSON.stringify(products));
+render();
+}
+
+render();
+
+</script>
+
+</body>
+</html>
