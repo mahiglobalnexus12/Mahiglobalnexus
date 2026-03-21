@@ -8,6 +8,98 @@
 <style>
 body{margin:0;font-family:Arial;background:#f5f5f5}
 
+/* Navbar */
+nav{
+display:flex;justify-content:space-between;
+padding:15px 40px;background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;top:0;z-index:1000;
+animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-100%);}
+to{transform:translateY(0);}
+}
+
+nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600}
+
+/* Hero */
+.hero{
+height:400px;
+display:flex;align-items:center;justify-content:center;
+color:#fff;text-align:center;
+background-size:cover;background-position:center;
+}
+.hero h1{
+background:rgba(0,0,0,0.6);
+padding:15px;border-radius:8px;
+}
+
+/* Sections */
+.section{
+padding:60px;text-align:center;
+}
+
+/* Fade animation */
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Cards */
+.cards{display:flex;flex-wrap:wrap;justify-content:center}
+.card{
+background:#fff;margin:10px;padding:20px;width:250px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.4s;
+}
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Gallery */
+.gallery{display:flex;flex-wrap:wrap;justify-content:center}
+.gallery img{
+width:300px;height:200px;object-fit:cover;
+margin:10px;border-radius:10px;
+}
+
+/* Buttons */
+button{
+transition:0.3s;padding:10px 20px;
+border:none;border-radius:5px;cursor:pointer;
+}
+button:hover{transform:scale(1.1)}
+
+/* Footer */
+footer{
+background:#000;color:#fff;padding:40px;text-align:center
+}
+
+/* WhatsApp */
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;padding:15px;
+border-radius:50%;font-size:20px;text-decoration:none
+}
+
+/* Admin hidden */
+#adminPanel{display:none}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
 <nav>
 <div style="display:flex;align-items:center;">
 <img src="Mahi EXIM Logo.png" style="height:50px;margin-right:10px;">
@@ -21,74 +113,16 @@ body{margin:0;font-family:Arial;background:#f5f5f5}
 <a href="#contact">Contact</a>
 </div>
 </nav>
-/* Hero */
-.hero{
-height:400px;
-display:flex;align-items:center;justify-content:center;
-color:#fff;text-align:center;
-background-size:cover;background-position:center;
-}
-.hero h1{background:rgba(0,0,0,0.5);padding:10px}
-
-/* Section */
-.section{padding:60px;text-align:center}
-
-/* Cards */
-.cards{display:flex;flex-wrap:wrap;justify-content:center}
-.card{
-background:#fff;margin:10px;padding:20px;width:250px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s
-}
-.card:hover{transform:scale(1.05)}
-
-/* Gallery */
-.gallery{display:flex;flex-wrap:wrap;justify-content:center}
-.gallery img{
-width:300px;height:200px;object-fit:cover;
-margin:10px;border-radius:10px;
-}
-
-/* Footer */
-footer{
-background:#020c1b;color:#fff;padding:40px;text-align:center
-}
-
-/* WhatsApp */
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:#fff;padding:15px;
-border-radius:50%;font-size:20px;text-decoration:none
-}
-
-/* Admin hidden */
-#adminPanel{display:none}
-</style>
-
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav>
-<h2>Mahi Global Nexus</h2>
-<div>
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
 
 <!-- HERO -->
 <div class="hero" id="hero">
-<h1>From Farm to Global Market 🌍</h1>
+<h1 class="fade-in">From Farm to Global Market 🌍</h1>
 </div>
 
 <!-- PRODUCTS -->
-<div class="section" id="products">
+<div class="section fade-in" id="products">
 <h2>Our Products</h2>
+
 <div class="cards">
 <div class="card">Fresh Vegetables</div>
 <div class="card">Fruits</div>
@@ -97,10 +131,11 @@ border-radius:50%;font-size:20px;text-decoration:none
 <div class="card">Chips (चिप्स)</div>
 <div class="card">Kurdai (कुर्डई)</div>
 </div>
+
 </div>
 
 <!-- GALLERY -->
-<div class="section" id="gallery">
+<div class="section fade-in" id="gallery">
 <h2>Our Farm & Products</h2>
 
 <div class="gallery">
@@ -115,7 +150,7 @@ border-radius:50%;font-size:20px;text-decoration:none
 </div>
 
 <!-- CONTACT -->
-<div class="section" id="contact">
+<div class="section fade-in" id="contact">
 <h2>Contact Us</h2>
 
 <p>📞 +91 8830577532</p>
@@ -124,11 +159,11 @@ border-radius:50%;font-size:20px;text-decoration:none
 
 <br>
 
-<button onclick="callNow()" style="padding:10px 20px;background:#eab308;border:none;border-radius:5px">
+<button onclick="callNow()" style="background:#eab308">
 📞 Call Now
 </button>
 
-<button onclick="openWhatsApp()" style="padding:10px 20px;background:#25D366;color:white;border:none;border-radius:5px">
+<button onclick="openWhatsApp()" style="background:#25D366;color:white">
 💬 WhatsApp
 </button>
 
@@ -136,7 +171,9 @@ border-radius:50%;font-size:20px;text-decoration:none
 
 <!-- FOOTER -->
 <footer>
-<p>Mahi Global Nexus © 2026</p>
+<p>📞 Contact: 8830577532</p>
+<p>📧 mahiglobalnexus12@gmail.com</p>
+<p>Mahi Global Nexus © 2026 All rights reserved</p>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
@@ -150,7 +187,7 @@ border-radius:50%;font-size:20px;text-decoration:none
 
 <script>
 
-// HERO IMAGE ROTATION (तुझे फोटो)
+// HERO SLIDER
 let images = [
 "Fresh Onion photo.jpeg",
 "Kothambir photo.jpeg",
@@ -162,6 +199,19 @@ setInterval(()=>{
 document.getElementById("hero").style.backgroundImage=`url(${images[i]})`;
 i=(i+1)%images.length;
 },3000);
+
+// SCROLL ANIMATION
+let elements = document.querySelectorAll(".fade-in");
+window.addEventListener("scroll", () => {
+elements.forEach(el => {
+let position = el.getBoundingClientRect().top;
+let screen = window.innerHeight;
+
+if(position < screen - 100){
+el.classList.add("show");
+}
+});
+});
 
 // CALL
 function callNow(){
