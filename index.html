@@ -10,27 +10,17 @@ body{margin:0;font-family:Arial;background:#f4f4f4}
 
 /* NAVBAR */
 nav{
-display:flex;justify-content:space-between;
-align-items:center;
-padding:10px 30px;
-background:#fff;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;background:#fff;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 position:sticky;top:0;z-index:1000;
 }
-nav img{height:60px}
-
-/* Language Bar */
-.lang{
-display:flex;gap:10px;
-}
-.lang button{
-padding:5px 10px;border:none;background:#eab308;border-radius:5px;cursor:pointer;
-}
+nav img{height:70px}
 
 /* HERO */
 .hero{
-height:450px;
-display:flex;align-items:center;justify-content:center;
+height:450px;display:flex;flex-direction:column;
+justify-content:center;align-items:center;
 color:#fff;text-align:center;
 background-size:cover;
 }
@@ -55,18 +45,21 @@ transition:0.3s;
 /* GALLERY */
 .gallery img{
 width:300px;height:200px;margin:10px;border-radius:10px;
+object-fit:cover;
 }
 
-/* BUTTONS */
-button{cursor:pointer}
+/* BUTTON */
+button{
+padding:10px 20px;border:none;border-radius:5px;cursor:pointer;
+}
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 .whatsapp{
 position:fixed;bottom:20px;right:20px;
 background:#25D366;color:#fff;padding:15px;border-radius:50%;
 }
 
-/* ADMIN HIDDEN */
+/* ADMIN */
 #adminPanel{display:none}
 </style>
 
@@ -76,8 +69,12 @@ background:#25D366;color:#fff;padding:15px;border-radius:50%;
 
 <!-- NAVBAR -->
 <nav>
+<div style="display:flex;align-items:center;">
 <img src="logo.png">
-<div class="lang">
+<h2>Mahi Global Nexus</h2>
+</div>
+
+<div>
 <button onclick="setLang('en')">EN</button>
 <button onclick="setLang('hi')">हिंदी</button>
 <button onclick="setLang('mr')">मराठी</button>
@@ -87,12 +84,13 @@ background:#25D366;color:#fff;padding:15px;border-radius:50%;
 <!-- HERO -->
 <div class="hero" id="hero">
 <h1 id="title">From Farm to Global Market 🌍</h1>
+<p id="tagline">Direct from Farmers & Women Groups</p>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
 <p id="about">
-We export fresh vegetables and homemade products directly from farmers and women groups. Pure, natural and trustworthy.
+We export directly from farmers and women self-help groups. 100% natural and trusted products.
 </p>
 </div>
 
@@ -101,6 +99,12 @@ We export fresh vegetables and homemade products directly from farmers and women
 <h2>Our Products</h2>
 
 <div class="cards">
+<div class="card">Onion (कांदा)</div>
+<div class="card">Tomato (टोमॅटो)</div>
+<div class="card">Chilli (मिरची)</div>
+<div class="card">Capsicum (ढोबळी मिरची)</div>
+<div class="card">Potato (बटाटा)</div>
+<div class="card">Coriander (कोथिंबीर)</div>
 
 <div class="card">Papad (पापड)</div>
 <div class="card">Pickle (लोणचे)</div>
@@ -108,75 +112,111 @@ We export fresh vegetables and homemade products directly from farmers and women
 <div class="card">Kurdai (कुर्डई)</div>
 <div class="card">Masale (मसाले)</div>
 <div class="card">Bhajani (भाजणी)</div>
+</div>
+</div>
 
+<!-- COUNTRIES -->
+<div class="section">
+<h2>Our Global Reach 🌍</h2>
+
+<div class="cards">
+<div class="card">🇦🇪 UAE</div>
+<div class="card">🇸🇦 Saudi</div>
+<div class="card">🇶🇦 Qatar</div>
+<div class="card">🇺🇸 USA</div>
+<div class="card">🇬🇧 UK</div>
+<div class="card">🇨🇦 Canada</div>
+<div class="card">🇦🇺 Australia</div>
+</div>
+</div>
+
+<!-- WHY US -->
+<div class="section">
+<h2>Why Choose Us</h2>
+
+<div class="cards">
+<div class="card">Direct Farmers</div>
+<div class="card">Women Products</div>
+<div class="card">100% Natural</div>
+<div class="card">Best Price</div>
+<div class="card">Export Quality</div>
 </div>
 </div>
 
 <!-- GALLERY -->
 <div class="section">
 <h2>Gallery</h2>
+
+<div class="gallery">
 <img src="Fresh Onion photo.jpeg">
 <img src="Potato photo.jpeg">
 <img src="Kothambir photo.jpeg">
 </div>
+</div>
 
-<!-- CONTACT -->
+<!-- INQUIRY -->
 <div class="section">
-<h2>Contact</h2>
-<p>📞 8830577532</p>
-<p>☎ 02435-357166</p>
-<p>📧 mahiglobalnexus12@gmail.com</p>
+<h2>Send Inquiry</h2>
 
-<button onclick="window.open('https://wa.me/918830577532')">WhatsApp</button>
-<button onclick="window.location='tel:+918830577532'">Call</button>
+<input id="name" placeholder="Name"><br><br>
+<textarea id="msg" placeholder="Requirement"></textarea><br><br>
+
+<button onclick="sendWhatsApp()" style="background:#25D366;color:white">
+Send WhatsApp
+</button>
 </div>
 
 <!-- FOOTER -->
 <footer style="background:#000;color:#fff;padding:30px;text-align:center">
-Mahi Global Nexus © 2026
+📞 8830577532 | 📧 mahiglobalnexus12@gmail.com  
+<br>Mahi Global Nexus © 2026
 </footer>
 
-<!-- WHATSAPP -->
 <a href="https://wa.me/918830577532" class="whatsapp">💬</a>
 
-<!-- SCRIPT -->
 <script>
 
 // HERO SLIDER
-let images=[
+let imgs=[
 "Fresh Onion photo.jpeg",
 "Kothambir photo.jpeg",
 "Potato photo.jpeg"
 ];
 let i=0;
 setInterval(()=>{
-document.getElementById("hero").style.backgroundImage=`url(${images[i]})`;
-i=(i+1)%images.length;
+hero.style.backgroundImage=`url(${imgs[i]})`;
+i=(i+1)%imgs.length;
 },3000);
 
 // LANGUAGE
-function setLang(lang){
-if(lang==="mr"){
+function setLang(l){
+if(l=="mr"){
 title.innerText="शेतातून जागतिक बाजारपेठेत 🌍";
-about.innerText="आम्ही शेतकरी व महिला गटांकडून थेट उत्पादन घेऊन export करतो.";
+about.innerText="आम्ही शेतकरी व महिला गटांकडून थेट माल export करतो.";
 }
-if(lang==="hi"){
-title.innerText="खेत से वैश्विक बाजार तक 🌍";
-about.innerText="हम किसानों और महिला समूहों से सीधे उत्पाद लेकर निर्यात करते हैं।";
-}
-if(lang==="en"){
-title.innerText="From Farm to Global Market 🌍";
-about.innerText="We export directly from farmers and women groups.";
+if(l=="hi"){
+title.innerText="खेत से वैश्विक बाजार 🌍";
+about.innerText="हम किसानों और महिला समूहों से सीधे उत्पाद निर्यात करते हैं।";
 }
 }
 
+// WHATSAPP
+function sendWhatsApp(){
+let name=document.getElementById("name").value;
+let msg=document.getElementById("msg").value;
+
+let url="https://wa.me/918830577532?text="
++"Name:"+name+"%0ARequirement:"+msg;
+
+window.open(url);
+}
+
 // ADMIN SECRET
-document.addEventListener("keydown", function(e){
+document.addEventListener("keydown",function(e){
 if(e.ctrlKey && e.key==="m"){
 adminPanel.style.display="block";
 }
 });
-
 </script>
 
 </body>
