@@ -6,117 +6,228 @@
 <title>Mahi Global Nexus</title>
 
 <style>
-body{font-family:Arial;margin:0;background:#0f172a;color:white}
-header{text-align:center;padding:20px;background:#020617}
-.logo{width:140px}
-.container{padding:20px}
-.search{padding:10px;width:300px;border-radius:5px;border:none;margin:20px auto;display:block}
-.products{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-.card{background:#1e293b;padding:15px;border-radius:10px;width:220px;cursor:pointer}
-.card img{width:100%;border-radius:8px}
-.details{display:none;background:#020617;padding:20px;margin-top:20px}
-button{padding:10px 14px;border:none;border-radius:5px;margin:5px;cursor:pointer}
-.whatsapp{background:#25D366;color:white}
-.call{background:#eab308}
-.admin{background:#020617;padding:20px;margin-top:40px}
-input,textarea{width:100%;padding:8px;margin:8px 0;border:none;border-radius:5px}
+body{margin:0;font-family:Arial;background:#f5f5f5}
+
+/* Navbar */
+nav{
+display:flex;justify-content:space-between;
+padding:15px 40px;background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;top:0;z-index:1000
+}
+nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600}
+
+/* Hero */
+.hero{
+height:400px;
+display:flex;align-items:center;justify-content:center;
+color:#fff;text-align:center;
+background-size:cover;background-position:center;
+transition:0.5s;
+}
+.hero h1{font-size:40px;background:rgba(0,0,0,0.5);padding:10px}
+
+/* Section */
+.section{padding:60px;text-align:center}
+
+/* Cards */
+.cards{display:flex;flex-wrap:wrap;justify-content:center}
+.card{
+background:#fff;margin:10px;padding:20px;width:250px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s
+}
+.card:hover{transform:scale(1.05)}
+
+/* Gallery */
+.gallery{display:flex;flex-wrap:wrap;justify-content:center}
+.gallery img{
+width:300px;height:200px;object-fit:cover;
+margin:10px;border-radius:10px;
+transition:0.3s
+}
+.gallery img:hover{transform:scale(1.05)}
+
+/* Footer */
+footer{
+background:#020c1b;color:#fff;padding:40px;text-align:center
+}
+
+/* WhatsApp */
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;padding:15px;
+border-radius:50%;font-size:20px;text-decoration:none
+}
+
+/* Admin hidden */
+#adminPanel{display:none}
 </style>
+
 </head>
 
 <body>
 
-<header>
-<img src="Mahi EXIM Logo.png" class="logo">
-<h1>Mahi Global Nexus</h1>
-<p>Kannad, Dist. Chhatrapati Sambhajinagar (Aurangabad)</p>
-</header>
+<!-- NAVBAR -->
+<nav>
+<h2>Mahi Global Nexus</h2>
+<div>
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 
-<div class="container">
-
-<input id="search" class="search" placeholder="Search products..." onkeyup="searchProduct()">
-
-<div id="products" class="products"></div>
-
-<div id="details" class="details"></div>
-
-<div id="adminLogin" class="admin">
-<h3>Admin Login</h3>
-<input id="adminPass" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
+<!-- HERO -->
+<div class="hero" id="hero">
+<h1>From Farm to Global Market 🌍</h1>
 </div>
 
-<div id="adminPanel" class="admin" style="display:none">
-<h3>Add Product</h3>
-<input id="pname" placeholder="Product Name">
-<input id="pimage" placeholder="Image name (example: onion.jpeg)">
-<textarea id="pdesc" placeholder="Description"></textarea>
-<button onclick="addProduct()">Add Product</button>
-</div>
+<!-- PRODUCTS -->
+<div class="section" id="products">
+<h2>Our Products</h2>
+
+<div class="cards">
+
+<div class="card">Fresh Vegetables</div>
+<div class="card">Fruits</div>
+<div class="card">Papad (पापड)</div>
+<div class="card">Pickle (लोणचे)</div>
+<div class="card">Chips (चिप्स)</div>
+<div class="card">Kurdai (कुर्डई)</div>
+<div class="card">Masale (मसाले)</div>
+<div class="card">Shev / Namkeen (शेव)</div>
+<div class="card">Bhajani (भाजणी)</div>
+<div class="card">Sandge (सांडगे)</div>
 
 </div>
+</div>
 
+<!-- COUNTRIES -->
+<div class="section">
+<h2>Export Countries</h2>
+<div class="cards">
+<div class="card">UAE</div>
+<div class="card">Saudi Arabia</div>
+<div class="card">Qatar</div>
+<div class="card">Kuwait</div>
+<div class="card">Oman</div>
+<div class="card">Bahrain</div>
+<div class="card">Singapore</div>
+<div class="card">Malaysia</div>
+<div class="card">UK</div>
+<div class="card">USA</div>
+<div class="card">Canada</div>
+<div class="card">Australia</div>
+</div>
+</div>
+
+<!-- GALLERY -->
+<div class="section" id="gallery">
+<h2>Our Farm & Products</h2>
+
+<div class="gallery">
+<img src="images/farm1.jpg">
+<img src="images/farm2.jpg">
+<img src="images/farm3.jpg">
+<img src="images/product1.jpg">
+<img src="images/product2.jpg">
+<img src="images/product3.jpg">
+</div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+<h2>About Us</h2>
+<p style="max-width:800px;margin:auto;">
+Mahi Global Nexus exports fresh vegetables, fruits, and gawran homemade products.
+We empower women self-help groups and deliver quality products worldwide.
+</p>
+<p><b>Empowering Women through Gawran Products 💚</b></p>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+<p>📞 Contact: 8830577532</p>
+<p>Mahi Global Nexus © 2026</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/918830577532" class="whatsapp">💬</a>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+<h2>Admin Panel</h2>
+<input type="password" placeholder="Enter Password">
+</div>
+
+<!-- SCRIPT -->
 <script>
 
-let products = JSON.parse(localStorage.getItem("products") || `[
-{"name":"Fresh Onion","image":"Fresh Onion photo.jpeg","desc":"Farm fresh onion"},
-{"name":"Tomato","image":"Tamato photo.jpeg","desc":"Fresh tomato"},
-{"name":"Potato","image":"Potato photo.jpeg","desc":"Export quality potato"}
-]`);
+// HERO IMAGE SLIDER
+let images = [
+"images/farm1.jpg",
+"images/farm2.jpg",
+"images/farm3.jpg"
+];
 
-function render(list=products){
-let html="";
-list.forEach((p,i)=>{
-html+=`<div class="card" onclick="show(${i})">
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p>${p.desc}</p>
-</div>`;
+let i=0;
+setInterval(()=>{
+document.getElementById("hero").style.backgroundImage=`url(${images[i]})`;
+i=(i+1)%images.length;
+},3000);
+
+// ADMIN SECRET
+document.addEventListener("keydown", function(e){
+if(e.ctrlKey && e.key==="m"){
+document.getElementById("adminPanel").style.display="block";
+}
 });
-document.getElementById("products").innerHTML=html;
-}
-
-function show(i){
-let p=products[i];
-let msg=`Hello I want ${p.name}`;
-let wa=`https://wa.me/918830577532?text=${encodeURIComponent(msg)}`;
-
-document.getElementById("details").style.display="block";
-document.getElementById("details").innerHTML=`
-<h2>${p.name}</h2>
-<img src="${p.image}" width="300">
-<p>${p.desc}</p>
-<button class="whatsapp" onclick="window.open('${wa}')">WhatsApp</button>
-<button class="call" onclick="window.location='tel:+918830577532'">Call</button>
-`;
-}
-
-function addProduct(){
-let name=pname.value;
-let image=pimage.value;
-let desc=pdesc.value;
-
-products.push({name,image,desc});
-localStorage.setItem("products",JSON.stringify(products));
-render();
-}
-
-function searchProduct(){
-let q=search.value.toLowerCase();
-render(products.filter(p=>p.name.toLowerCase().includes(q)));
-}
-
-function login(){
-if(adminPass.value==="mahiglobal123"){
-adminLogin.style.display="none";
-adminPanel.style.display="block";
-}else{
-alert("Wrong Password");
-}
-}
-
-render();
 
 </script>
 
 </body>
-</html>
+</html><!-- CONTACT SECTION -->
+<div class="section" id="contact">
+<h2>Contact Us</h2>
+
+<p><b>📍 Location:</b> Kannad, Dist. Chhatrapati Sambhajinagar</p>
+<p><b>📞 Mobile:</b> +91 8830577532</p>
+<p><b>☎ Landline:</b> 02435-357166</p>
+<p><b>📧 Email:</b> mahiglobalnexus12@gmail.com</p>
+
+<br>
+
+<!-- BUTTONS -->
+<button onclick="callNow()" style="padding:10px 20px;margin:5px;background:#eab308;border:none;border-radius:5px;cursor:pointer">
+📞 Call Now
+</button>
+
+<button onclick="openWhatsApp()" style="padding:10px 20px;margin:5px;background:#25D366;color:white;border:none;border-radius:5px;cursor:pointer">
+💬 WhatsApp
+</button>
+
+</div>
+// CALL FUNCTION
+function callNow(){
+window.location.href="tel:+918830577532";
+}
+
+// WHATSAPP BUTTON
+function openWhatsApp(){
+window.open("https://wa.me/918830577532");
+}
+
+// INQUIRY FORM
+function sendInquiry(){
+let name=document.getElementById("name").value;
+let product=document.getElementById("product").value;
+let msg=document.getElementById("msg").value;
+
+let text=`Hello, I am ${name}. I want ${product}. ${msg}`;
+let url=`https://wa.me/918830577532?text=${encodeURIComponent(text)}`;
+
+window.open(url);
+}
