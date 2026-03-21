@@ -6,227 +6,174 @@
 <title>Mahi Global Nexus</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
+body{margin:0;font-family:Arial;background:#f4f4f4}
 
-/* Navbar */
+/* NAVBAR */
 nav{
 display:flex;justify-content:space-between;
-padding:15px 40px;background:#fff;
+align-items:center;
+padding:10px 30px;
+background:#fff;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 position:sticky;top:0;z-index:1000;
-animation:slideDown 0.8s ease;
+}
+nav img{height:60px}
+
+/* Language Bar */
+.lang{
+display:flex;gap:10px;
+}
+.lang button{
+padding:5px 10px;border:none;background:#eab308;border-radius:5px;cursor:pointer;
 }
 
-@keyframes slideDown{
-from{transform:translateY(-100%);}
-to{transform:translateY(0);}
-}
-
-nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600}
-
-/* Hero */
+/* HERO */
 .hero{
-height:400px;
+height:450px;
 display:flex;align-items:center;justify-content:center;
 color:#fff;text-align:center;
-background-size:cover;background-position:center;
+background-size:cover;
 }
 .hero h1{
 background:rgba(0,0,0,0.6);
-padding:15px;border-radius:8px;
+padding:20px;border-radius:10px;
 }
 
-/* Sections */
-.section{
-padding:60px;text-align:center;
-}
+/* SECTION */
+.section{padding:60px;text-align:center}
 
-/* Fade animation */
-.fade-in{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-.fade-in.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Cards */
+/* CARDS */
 .cards{display:flex;flex-wrap:wrap;justify-content:center}
 .card{
 background:#fff;margin:10px;padding:20px;width:250px;
-border-radius:12px;
+border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.4s;
+transition:0.3s;
 }
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
+.card:hover{transform:scale(1.05)}
 
-/* Gallery */
-.gallery{display:flex;flex-wrap:wrap;justify-content:center}
+/* GALLERY */
 .gallery img{
-width:300px;height:200px;object-fit:cover;
-margin:10px;border-radius:10px;
+width:300px;height:200px;margin:10px;border-radius:10px;
 }
 
-/* Buttons */
-button{
-transition:0.3s;padding:10px 20px;
-border:none;border-radius:5px;cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
+/* BUTTONS */
+button{cursor:pointer}
 
-/* Footer */
-footer{
-background:#000;color:#fff;padding:40px;text-align:center
-}
-
-/* WhatsApp */
+/* WHATSAPP FLOAT */
 .whatsapp{
 position:fixed;bottom:20px;right:20px;
-background:#25D366;color:#fff;padding:15px;
-border-radius:50%;font-size:20px;text-decoration:none
+background:#25D366;color:#fff;padding:15px;border-radius:50%;
 }
 
-/* Admin hidden */
+/* ADMIN HIDDEN */
 #adminPanel{display:none}
-
 </style>
+
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 <nav>
-<div style="display:flex;align-items:center;">
-<img src="Mahi EXIM Logo.png" style="height:50px;margin-right:10px;">
-<h2>Mahi Global Nexus</h2>
-</div>
-
-<div>
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
+<img src="logo.png">
+<div class="lang">
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('hi')">हिंदी</button>
+<button onclick="setLang('mr')">मराठी</button>
 </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero" id="hero">
-<h1 class="fade-in">From Farm to Global Market 🌍</h1>
+<h1 id="title">From Farm to Global Market 🌍</h1>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+<p id="about">
+We export fresh vegetables and homemade products directly from farmers and women groups. Pure, natural and trustworthy.
+</p>
 </div>
 
 <!-- PRODUCTS -->
-<div class="section fade-in" id="products">
+<div class="section">
 <h2>Our Products</h2>
 
 <div class="cards">
-<div class="card">Fresh Vegetables</div>
-<div class="card">Fruits</div>
+
 <div class="card">Papad (पापड)</div>
 <div class="card">Pickle (लोणचे)</div>
 <div class="card">Chips (चिप्स)</div>
 <div class="card">Kurdai (कुर्डई)</div>
-</div>
+<div class="card">Masale (मसाले)</div>
+<div class="card">Bhajani (भाजणी)</div>
 
+</div>
 </div>
 
 <!-- GALLERY -->
-<div class="section fade-in" id="gallery">
-<h2>Our Farm & Products</h2>
-
-<div class="gallery">
+<div class="section">
+<h2>Gallery</h2>
 <img src="Fresh Onion photo.jpeg">
-<img src="Kothambir photo.jpeg">
 <img src="Potato photo.jpeg">
-<img src="Fresh Onion photo.jpeg">
 <img src="Kothambir photo.jpeg">
-<img src="Potato photo.jpeg">
-</div>
-
 </div>
 
 <!-- CONTACT -->
-<div class="section fade-in" id="contact">
-<h2>Contact Us</h2>
-
-<p>📞 +91 8830577532</p>
+<div class="section">
+<h2>Contact</h2>
+<p>📞 8830577532</p>
 <p>☎ 02435-357166</p>
 <p>📧 mahiglobalnexus12@gmail.com</p>
 
-<br>
-
-<button onclick="callNow()" style="background:#eab308">
-📞 Call Now
-</button>
-
-<button onclick="openWhatsApp()" style="background:#25D366;color:white">
-💬 WhatsApp
-</button>
-
+<button onclick="window.open('https://wa.me/918830577532')">WhatsApp</button>
+<button onclick="window.location='tel:+918830577532'">Call</button>
 </div>
 
 <!-- FOOTER -->
-<footer>
-<p>📞 Contact: 8830577532</p>
-<p>📧 mahiglobalnexus12@gmail.com</p>
-<p>Mahi Global Nexus © 2026 All rights reserved</p>
+<footer style="background:#000;color:#fff;padding:30px;text-align:center">
+Mahi Global Nexus © 2026
 </footer>
 
-<!-- WHATSAPP FLOAT -->
+<!-- WHATSAPP -->
 <a href="https://wa.me/918830577532" class="whatsapp">💬</a>
 
-<!-- ADMIN -->
-<div id="adminPanel">
-<h2>Admin Panel</h2>
-<input type="password" placeholder="Enter Password">
-</div>
-
+<!-- SCRIPT -->
 <script>
 
 // HERO SLIDER
-let images = [
+let images=[
 "Fresh Onion photo.jpeg",
 "Kothambir photo.jpeg",
 "Potato photo.jpeg"
 ];
-
 let i=0;
 setInterval(()=>{
 document.getElementById("hero").style.backgroundImage=`url(${images[i]})`;
 i=(i+1)%images.length;
 },3000);
 
-// SCROLL ANIMATION
-let elements = document.querySelectorAll(".fade-in");
-window.addEventListener("scroll", () => {
-elements.forEach(el => {
-let position = el.getBoundingClientRect().top;
-let screen = window.innerHeight;
-
-if(position < screen - 100){
-el.classList.add("show");
+// LANGUAGE
+function setLang(lang){
+if(lang==="mr"){
+title.innerText="शेतातून जागतिक बाजारपेठेत 🌍";
+about.innerText="आम्ही शेतकरी व महिला गटांकडून थेट उत्पादन घेऊन export करतो.";
 }
-});
-});
-
-// CALL
-function callNow(){
-window.location.href="tel:+918830577532";
+if(lang==="hi"){
+title.innerText="खेत से वैश्विक बाजार तक 🌍";
+about.innerText="हम किसानों और महिला समूहों से सीधे उत्पाद लेकर निर्यात करते हैं।";
 }
-
-// WHATSAPP
-function openWhatsApp(){
-window.open("https://wa.me/918830577532");
+if(lang==="en"){
+title.innerText="From Farm to Global Market 🌍";
+about.innerText="We export directly from farmers and women groups.";
+}
 }
 
 // ADMIN SECRET
 document.addEventListener("keydown", function(e){
 if(e.ctrlKey && e.key==="m"){
-document.getElementById("adminPanel").style.display="block";
+adminPanel.style.display="block";
 }
 });
 
