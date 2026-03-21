@@ -23,9 +23,8 @@ height:400px;
 display:flex;align-items:center;justify-content:center;
 color:#fff;text-align:center;
 background-size:cover;background-position:center;
-transition:0.5s;
 }
-.hero h1{font-size:40px;background:rgba(0,0,0,0.5);padding:10px}
+.hero h1{background:rgba(0,0,0,0.5);padding:10px}
 
 /* Section */
 .section{padding:60px;text-align:center}
@@ -45,9 +44,7 @@ transition:0.3s
 .gallery img{
 width:300px;height:200px;object-fit:cover;
 margin:10px;border-radius:10px;
-transition:0.3s
 }
-.gallery img:hover{transform:scale(1.05)}
 
 /* Footer */
 footer{
@@ -88,39 +85,13 @@ border-radius:50%;font-size:20px;text-decoration:none
 <!-- PRODUCTS -->
 <div class="section" id="products">
 <h2>Our Products</h2>
-
 <div class="cards">
-
 <div class="card">Fresh Vegetables</div>
 <div class="card">Fruits</div>
 <div class="card">Papad (पापड)</div>
 <div class="card">Pickle (लोणचे)</div>
 <div class="card">Chips (चिप्स)</div>
 <div class="card">Kurdai (कुर्डई)</div>
-<div class="card">Masale (मसाले)</div>
-<div class="card">Shev / Namkeen (शेव)</div>
-<div class="card">Bhajani (भाजणी)</div>
-<div class="card">Sandge (सांडगे)</div>
-
-</div>
-</div>
-
-<!-- COUNTRIES -->
-<div class="section">
-<h2>Export Countries</h2>
-<div class="cards">
-<div class="card">UAE</div>
-<div class="card">Saudi Arabia</div>
-<div class="card">Qatar</div>
-<div class="card">Kuwait</div>
-<div class="card">Oman</div>
-<div class="card">Bahrain</div>
-<div class="card">Singapore</div>
-<div class="card">Malaysia</div>
-<div class="card">UK</div>
-<div class="card">USA</div>
-<div class="card">Canada</div>
-<div class="card">Australia</div>
 </div>
 </div>
 
@@ -132,49 +103,54 @@ border-radius:50%;font-size:20px;text-decoration:none
 <img src="Fresh Onion photo.jpeg">
 <img src="Kothambir photo.jpeg">
 <img src="Potato photo.jpeg">
-<img src="images/farm2.jpg">
-<img src="images/farm3.jpg">
-<img src="images/product1.jpg">
-<img src="images/product2.jpg">
-<img src="images/product3.jpg">
-</div>
-<div class="hero" style="background:url('Fresh Onion photo.jpeg'); background-size:cover;">
-<div class="hero" style="background:url('Fresh Onion photo.jpeg'); background-size:cover;">  
+<img src="Fresh Onion photo.jpeg">
+<img src="Kothambir photo.jpeg">
+<img src="Potato photo.jpeg">
 </div>
 
-<!-- ABOUT -->
-<div class="section">
-<h2>About Us</h2>
-<p style="max-width:800px;margin:auto;">
-Mahi Global Nexus exports fresh vegetables, fruits, and gawran homemade products.
-We empower women self-help groups and deliver quality products worldwide.
-</p>
-<p><b>Empowering Women through Gawran Products 💚</b></p>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+<h2>Contact Us</h2>
+
+<p>📞 +91 8830577532</p>
+<p>☎ 02435-357166</p>
+<p>📧 mahiglobalnexus12@gmail.com</p>
+
+<br>
+
+<button onclick="callNow()" style="padding:10px 20px;background:#eab308;border:none;border-radius:5px">
+📞 Call Now
+</button>
+
+<button onclick="openWhatsApp()" style="padding:10px 20px;background:#25D366;color:white;border:none;border-radius:5px">
+💬 WhatsApp
+</button>
+
 </div>
 
 <!-- FOOTER -->
-<footer id="contact">
-<p>📞 Contact: 8830577532</p>
+<footer>
 <p>Mahi Global Nexus © 2026</p>
 </footer>
 
-<!-- WHATSAPP -->
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/918830577532" class="whatsapp">💬</a>
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 <div id="adminPanel">
 <h2>Admin Panel</h2>
 <input type="password" placeholder="Enter Password">
 </div>
 
-<!-- SCRIPT -->
 <script>
 
-// HERO IMAGE SLIDER
+// HERO IMAGE ROTATION (तुझे फोटो)
 let images = [
-"images/farm1.jpg",
-"images/farm2.jpg",
-"images/farm3.jpg"
+"Fresh Onion photo.jpeg",
+"Kothambir photo.jpeg",
+"Potato photo.jpeg"
 ];
 
 let i=0;
@@ -182,6 +158,16 @@ setInterval(()=>{
 document.getElementById("hero").style.backgroundImage=`url(${images[i]})`;
 i=(i+1)%images.length;
 },3000);
+
+// CALL
+function callNow(){
+window.location.href="tel:+918830577532";
+}
+
+// WHATSAPP
+function openWhatsApp(){
+window.open("https://wa.me/918830577532");
+}
 
 // ADMIN SECRET
 document.addEventListener("keydown", function(e){
@@ -193,45 +179,4 @@ document.getElementById("adminPanel").style.display="block";
 </script>
 
 </body>
-</html><!-- CONTACT SECTION -->
-<div class="section" id="contact">
-<h2>Contact Us</h2>
-
-<p><b>📍 Location:</b> Kannad, Dist. Chhatrapati Sambhajinagar</p>
-<p><b>📞 Mobile:</b> +91 8830577532</p>
-<p><b>☎ Landline:</b> 02435-357166</p>
-<p><b>📧 Email:</b> mahiglobalnexus12@gmail.com</p>
-
-<br>
-
-<!-- BUTTONS -->
-<button onclick="callNow()" style="padding:10px 20px;margin:5px;background:#eab308;border:none;border-radius:5px;cursor:pointer">
-📞 Call Now
-</button>
-
-<button onclick="openWhatsApp()" style="padding:10px 20px;margin:5px;background:#25D366;color:white;border:none;border-radius:5px;cursor:pointer">
-💬 WhatsApp
-</button>
-
-</div>
-// CALL FUNCTION
-function callNow(){
-window.location.href="tel:+918830577532";
-}
-
-// WHATSAPP BUTTON
-function openWhatsApp(){
-window.open("https://wa.me/918830577532");
-}
-
-// INQUIRY FORM
-function sendInquiry(){
-let name=document.getElementById("name").value;
-let product=document.getElementById("product").value;
-let msg=document.getElementById("msg").value;
-
-let text=`Hello, I am ${name}. I want ${product}. ${msg}`;
-let url=`https://wa.me/918830577532?text=${encodeURIComponent(text)}`;
-
-window.open(url);
-}
+</html>
