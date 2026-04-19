@@ -326,7 +326,11 @@ document.getElementById("adminPanel").style.display="none";
 function addProduct(){
 let name = document.getElementById("pname").value;
 let img = document.getElementById("pimg").value;
-
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<button onclick="deleteProduct(${i})">❌ Delete</button>
+</div>
 let html = `
 <div class="card">
 <img src="${img}">
@@ -336,8 +340,12 @@ let html = `
 document.addEventListener("keydown",function(e){
 if(e.ctrlKey && e.key.toLowerCase()=="m"){
 let pass = prompt("Enter Admin Password");
-
-if(pass=="12345"){
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<button onclick="deleteProduct(${i})">❌ Delete</button>
+</div> 
+f(pass=="12345"){
 document.getElementById("adminPanel").style.display="block";
 }else{
 alert("Wrong Password");
