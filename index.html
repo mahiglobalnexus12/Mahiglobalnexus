@@ -149,7 +149,7 @@ We export directly from farmers and women self-help groups. 100% natural and tru
 <div class="card">100% Natural</div>
 <div class="card">Best Price</div>
 <div class="card">Export Quality</div>
-</div>
+<div class="grid" id="productGrid"></div>
 </div>
 
 <!-- GALLERY -->
@@ -176,16 +176,75 @@ Send WhatsApp
 </div>
 <div id="adminPanel" style="display:none;position:fixed;top:50%;left:50%;
 transform:translate(-50%,-50%);
-background:#fff;padding:20px;border-radius:10px;
-box-shadow:0 0 20px rgba(0,0,0,0.4);z-index:9999;width:300px;">
+background:#fff;padding:20px;border-radius:10px;">
 
 <h3>Admin Panel</h3>
 
 <input id="pname" placeholder="Product Name"><br><br>
-<input id="pimg" placeholder="Image URL"><br><br>
+<input id="pimg" placeholder="Image Name (e.g. papad.jpg)"><br><br>
 
-<button onclick="addProduct()">Add Product</button>
+<button onclick="addProduct()">Add</button>
 <button onclick="closeAdmin()">Close</button>
+
+</div>
+<script>
+
+// OPEN ADMIN
+document.addEventListener("keydown",function(e){
+if(e.ctrlKey && e.key.toLowerCase()=="m"){
+let pass = prompt("Enter Password");
+if(pass=="12345"){
+adminPanel.style.display="block";
+}
+}
+});
+
+// CLOSE
+function closeAdmin(){
+adminPanel.style.display="none";
+}
+
+// LOAD PRODUCTS
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+// DISPLAY PRODUCTS
+function displayProducts(){
+let html="";
+products.forEach((p,i)=>{
+html += `
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<button onclick="deleteProduct(${i})">❌ Delete</button>
+</div>
+`;
+});
+document.getElementById("productGrid").innerHTML = html;
+}
+
+// ADD PRODUCT
+function addProduct(){
+let name = document.getElementById("pname").value;
+let img = document.getElementById("pimg").value;
+
+products.push({name,img});
+localStorage.setItem("products", JSON.stringify(products));
+
+displayProducts();
+alert("Added ✅");
+}
+
+// DELETE PRODUCT
+function deleteProduct(i){
+products.splice(i,1);
+localStorage.setItem("products", JSON.stringify(products));
+displayProducts();
+}
+
+// INITIAL LOAD
+displayProducts();
+
+</script>
 
 </div>
 <!-- FOOTER -->
