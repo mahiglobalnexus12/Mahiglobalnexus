@@ -190,7 +190,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.4);z-index:9999;width:300px;">
 </div>
 <!-- FOOTER -->
 <footer style="background:#000;color:#fff;padding:30px;text-align:center">
-📞 8830577532 | 📧 mahiglobalnexus12@gmail.com  
+📞 8830577532 |02435-357166 📧 mahiglobalnexus12@gmail.com  
 <br>Mahi Global Nexus © 2026
 </footer>
 
@@ -209,7 +209,7 @@ setInterval(()=>{
 hero.style.backgroundImage=`url(${imgs[i]})`;
 i=(i+1)%imgs.length;
 },3000);
-
+<div id="adminPanel">
 // LANGUAGE
 function setLang(l){
 if(l=="mr"){
@@ -274,7 +274,17 @@ let html = `
 <h3>${name}</h3>
 </div>
 `;
+document.addEventListener("keydown",function(e){
+if(e.ctrlKey && e.key.toLowerCase()=="m"){
+let pass = prompt("Enter Admin Password");
 
+if(pass=="12345"){
+document.getElementById("adminPanel").style.display="block";
+}else{
+alert("Wrong Password");
+}
+}
+});
 document.querySelector(".grid").innerHTML += html;
 
 alert("Product Added ✅");
