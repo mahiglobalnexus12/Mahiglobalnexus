@@ -174,7 +174,20 @@ We export directly from farmers and women self-help groups. 100% natural and tru
 Send WhatsApp
 </button>
 </div>
+<div id="adminPanel" style="display:none;position:fixed;top:50%;left:50%;
+transform:translate(-50%,-50%);
+background:#fff;padding:20px;border-radius:10px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);z-index:9999;width:300px;">
 
+<h3>Admin Panel</h3>
+
+<input id="pname" placeholder="Product Name"><br><br>
+<input id="pimg" placeholder="Image URL"><br><br>
+
+<button onclick="addProduct()">Add Product</button>
+<button onclick="closeAdmin()">Close</button>
+
+</div>
 <!-- FOOTER -->
 <footer style="background:#000;color:#fff;padding:30px;text-align:center">
 📞 8830577532 | 📧 mahiglobalnexus12@gmail.com  
@@ -230,3 +243,41 @@ adminPanel.style.display="block";
 
 </body>
 </html>
+<script>
+
+// OPEN ADMIN (CTRL+M)
+document.addEventListener("keydown",function(e){
+if(e.ctrlKey && e.key.toLowerCase()=="m"){
+let pass = prompt("Enter Admin Password");
+
+if(pass=="12345"){
+document.getElementById("adminPanel").style.display="block";
+}else{
+alert("Wrong Password");
+}
+}
+});
+
+// CLOSE
+function closeAdmin(){
+document.getElementById("adminPanel").style.display="none";
+}
+
+// ADD PRODUCT
+function addProduct(){
+let name = document.getElementById("pname").value;
+let img = document.getElementById("pimg").value;
+
+let html = `
+<div class="card">
+<img src="${img}">
+<h3>${name}</h3>
+</div>
+`;
+
+document.querySelector(".grid").innerHTML += html;
+
+alert("Product Added ✅");
+}
+
+</script>
